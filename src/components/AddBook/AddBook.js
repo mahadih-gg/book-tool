@@ -16,7 +16,7 @@ const AddBook = () => {
             bookCover: imageUrl
         }
 
-        fetch('http://localhost:5000/addBook', {
+        fetch('https://quiet-waters-82203.herokuapp.com/addBook', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(bookData)

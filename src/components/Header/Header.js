@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../../App';
 import logo from '../../images/logo.png'
+import './Header.css'
 
 const Header = () => {
+    const [user, setUser] = useContext(UserContext)
     return (
         <div>
             <nav className="navbar navbar-expand-lg">
@@ -30,9 +33,19 @@ const Header = () => {
                             <li className="nav-item mr-5">
                                 <Link to="/addBook" className="nav-link">Add Book</Link>
                             </li>
-                            <li className="nav-item mr-5">
-                                <Link to="/login" className="nav-link"> <button className="btn btn-custom">Log In</button> </Link>
-                            </li>
+                            {
+                                user.email ? <li className="nav-item mr-5">
+                                    <Link to="/" className="nav-link" onClick={() => setUser({})}> <button className="btn btn-danger">Log Out</button> </Link>
+                                </li>
+                                    : <li className="nav-item mr-5">
+                                        <Link to="/login" className="nav-link"> <button className="btn btn-custom">Log In</button> </Link>
+                                    </li>
+                            }
+                            {
+                                user.email && <li className="nav-item profile mr-5">
+                                    <img src={user.photoURL} className="" alt="" />
+                                </li>
+                            }
 
                         </ul>
                     </div>

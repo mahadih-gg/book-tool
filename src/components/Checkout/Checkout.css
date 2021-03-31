@@ -1,0 +1,12 @@
+.checkout-header h2{
+    color: #555555;
+}
+.checkout-card{
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px #d5d5d5;
+}
+.checkout-img{
+    height: 180px;
+    box-shadow: 5px 5px 10px #aaaaaa;
+    border-radius: 10px;
+}

@@ -24,7 +24,6 @@ const AddBook = () => {
             .then(res => console.log('response', res))
 
     };
-    console.log(imageUrl);
     const handleUploadImages = (e) => {
         const imageData = new FormData();
         imageData.set('key', '3f363e85e94ff32374398424e5766ed5')
@@ -33,8 +32,8 @@ const AddBook = () => {
         axios.post('https://api.imgbb.com/1/upload', imageData)
             .then(res => setImageUrl(res.data.data.display_url))
             .catch(err => console.log(err))
-
     }
+    console.log(imageUrl);
 
 
     return (

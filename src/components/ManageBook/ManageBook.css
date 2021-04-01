@@ -1,0 +1,14 @@
+.manage-book-container{
+    box-shadow: 5px 5px 10px #bfbfbf;
+    border-radius: 10px;
+}
+.manage-book-header{
+    background: #ededed;
+    border-radius: 10px;
+}
+.manage-book-body{
+    
+}
+.single-book:hover{
+    background:rgba(0, 0, 0, 0.050);
+}

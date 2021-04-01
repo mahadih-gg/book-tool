@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
 import './Order.css'
-import image from '../../images/image 22.png'
 import { UserContext } from '../../App';
 
 const Order = () => {

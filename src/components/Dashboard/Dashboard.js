@@ -9,6 +9,7 @@ import Sidebar from '../Sidebar/Sidebar';
 import AddBook from '../AddBook/AddBook';
 import ManageBook from '../ManageBook/ManageBook';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
+import EditBook from '../EditBook/EditBook';
 
 
 const Dashboard = () => {
@@ -22,13 +23,16 @@ const Dashboard = () => {
                 </Switch>
 
                 <Switch>
-                    <div className="col-7">
+                    <div className="col-8">
                         <Route path="/dashboard/manageBooks">
                             <ManageBook></ManageBook>
                         </Route>
                         <PrivateRoute path="/dashboard/addBook">
                             <AddBook />
                         </PrivateRoute>
+                        <Route path="/dashboard/editBook">
+                            <EditBook />
+                        </Route>
                     </div>
                 </Switch>
 

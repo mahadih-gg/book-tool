@@ -44,6 +44,28 @@ const Login = () => {
     }
 
     const handleFacebookLogin = () => {
+        const provider = new firebase.auth.FacebookAuthProvider();
+
+        firebase
+            .auth()
+            .signInWithPopup(provider)
+            .then((result) => {
+                var credential = result.credential;
+                var accessToken = credential.accessToken;
+                var user = result.user;
+                setUser(user)
+                history.replace(from);
+                console.log(user);
+
+            })
+            .catch((error) => {
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                var email = error.email;
+                var credential = error.credential;
+                console.log(errorCode, errorMessage, email, credential);
+
+            });
 
     }
 

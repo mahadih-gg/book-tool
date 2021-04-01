@@ -1,0 +1,9 @@
+.order-card{    
+    border-radius: 15px;
+    box-shadow: 5px 5px 10px #bababa;
+}
+.order-card img{
+    height: 100px;
+    box-shadow: 5px 5px 10px #bababa;
+    border-radius: 15px;
+}

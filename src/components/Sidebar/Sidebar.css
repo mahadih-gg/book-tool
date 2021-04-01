@@ -1,0 +1,17 @@
+.sidebar-custom{
+    background: linear-gradient(to right, rgb(17, 153, 142), rgb(56, 239, 125));
+    height: 80vh;
+    border-radius: 0px 10px 10px 0px;
+}
+.sidebar-link{
+    background: rgba(0, 0, 0, 0.100);
+    color: #fff;
+    transition: all ease .5s;
+}
+.sidebar-link:hover{
+    background: rgba(0, 0, 0, 0.150) !important;
+    color: #fff;
+    text-shadow: 0px 0px 10px #fff;
+    padding-right: 15px;
+    transition: all ease .3s;
+}

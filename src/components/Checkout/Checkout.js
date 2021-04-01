@@ -1,19 +1,34 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../../App';
 import './Checkout.css'
 
 const Checkout = () => {
+
+    const [user, setUser] = useContext(UserContext);
+
     const { bookId } = useParams();
 
     const [book, setBook] = useState({})
+    const { name, authorName, price, bookCover } = book
     useEffect(() => {
-        fetch(`http://localhost:5000/book/${bookId}`)
+        fetch(`https://quiet-waters-82203.herokuapp.com/book/${bookId}`)
             .then(res => res.json())
             .then(data => setBook(data))
     }, [])
 
-    const { name, authorName, price, bookCover } = book
+    const handleOrderBtn = () => {
+        const newOrder = { user: user.displayName, email: user.email, ...book }
+
+        fetch('http://localhost:5000/addOrder', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newOrder)
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
+    }
 
     return (
         <div className="container">
@@ -51,7 +66,7 @@ const Checkout = () => {
                         </tbody>
                     </table>
                     <div className="w-100 text-right">
-                        <Link to="/orders" className="btn btn-custom">Order Now</Link>
+                        <Link to="/orders" onClick={handleOrderBtn} className="btn btn-custom">Order Now</Link>
                     </div>
                 </div>
             </div>

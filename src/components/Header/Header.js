@@ -28,10 +28,7 @@ const Header = () => {
                                 <Link to="/" className="nav-link">About</Link>
                             </li>
                             <li className="nav-item mr-5">
-                                <Link to="/dashboard" className="nav-link">Dashboard</Link>
-                            </li>
-                            <li className="nav-item mr-5">
-                                <Link to="/addBook" className="nav-link">Add Book</Link>
+                                <Link to="/dashboard/manageBooks" className="nav-link">Dashboard</Link>
                             </li>
                             {
                                 user.email ? <li className="nav-item mr-5">

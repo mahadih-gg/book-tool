@@ -36,18 +36,15 @@ function App() {
           <PrivateRoute path="/checkout/book/:bookId">
             <Checkout />
           </PrivateRoute>
-          <PrivateRoute path="/addBook">
-            <AddBook />
-          </PrivateRoute>
           <PrivateRoute path="/orders">
             <Order />
           </PrivateRoute>
           <Route path="/login">
             <Login />
           </Route>
-          <PrivateRoute path="/dashboard">
+          <Route path="/dashboard/manageBooks">
             <Dashboard />
-          </PrivateRoute>
+          </Route>
         </Switch>
       </Router>
     </UserContext.Provider>

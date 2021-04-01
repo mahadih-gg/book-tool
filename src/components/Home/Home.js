@@ -10,7 +10,6 @@ const Home = () => {
             .then(data => setBooks(data))
     }, [])
 
-
     return (
         <div className="container">
 

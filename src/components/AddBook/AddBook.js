@@ -42,7 +42,7 @@ const AddBook = () => {
                 <h2>Add Book</h2>
             </div>
 
-            <form onSubmit={handleSubmit(onSubmit)} className="row mt-5 addBook-form p-5">
+            <form onSubmit={handleSubmit(onSubmit)} className="row mt-3 addBook-form p-5">
                 <div className="form-group col-md-5">
                     <label htmlFor="bookName">Book Name</label>
                     <input type="text" name="name" className="form-control" id="bookName" ref={register({ required: true })} placeholder="Enter Book Name" />

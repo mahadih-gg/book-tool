@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import './Order.css'
 import { UserContext } from '../../App';
+import loader from './../../images/main-loading.gif'
+
 
 const Order = () => {
     const [user, setUser] = useContext(UserContext);
@@ -8,7 +10,7 @@ const Order = () => {
     const [orders, setOrders] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/orders?email=${user.email}`, {
+        fetch(`https://quiet-waters-82203.herokuapp.com/orders?email=${user.email}`, {
             method: "GET",
             headers: { 'Content-Type': 'application/json' }
         })
@@ -22,6 +24,11 @@ const Order = () => {
                 <h1> <span className="color-custom">{user.displayName},</span> your ordered books</h1>
             </div>
             <hr />
+            <div className="w-100 d-flex justify-content-center align-items-center">
+                {
+                    orders.length === 0 && <img src={loader} alt="" className="loading" />
+                }
+            </div>
             {
                 orders.map(order => {
                     return (

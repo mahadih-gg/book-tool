@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import './ManageBook.css'
-import editIco from '../../images/edit-ico.png'
-import deleteIco from '../../images/delete-ico.png'
+import './ManageBook.css';
+import editIco from '../../images/edit-ico.png';
+import deleteIco from '../../images/delete-ico.png';
+import loader from './../../images/main-loading.gif'
+
 
 const ManageBook = () => {
 
@@ -13,7 +15,7 @@ const ManageBook = () => {
     }, [books])
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/deleteBook/${id}`, {
+        fetch(`https://quiet-waters-82203.herokuapp.com/deleteBook/${id}`, {
             method: "DELETE"
         })
             .then(res => res.json())
@@ -45,6 +47,13 @@ const ManageBook = () => {
                 </div>
             </div>
             <div className="manage-book-body">
+
+                <div className="w-100 d-flex justify-content-center align-items-center">
+                    {
+                        books.length === 0 && <img src={loader} alt="" className="loading" />
+                    }
+                </div>
+
                 {
                     books.map(book => {
                         return (

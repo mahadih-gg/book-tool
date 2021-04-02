@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Books from '../Books/Books';
-import './Home.css'
+import './Home.css';
+import loader from './../../images/main-loading.gif'
 
 const Home = () => {
     const [books, setBooks] = useState([])
@@ -22,6 +23,9 @@ const Home = () => {
             </div>
 
             <div className="row mt-5">
+                {
+                    books.length === 0 && <img src={loader} alt="" className="loading m-auto" />
+                }
                 {
                     books.map(book => <Books book={book} key={book._id}></Books>)
                 }

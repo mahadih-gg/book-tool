@@ -21,7 +21,7 @@ const Checkout = () => {
     const handleOrderBtn = () => {
         const newOrder = { user: user.displayName, email: user.email, ...book, date: (new Date()) }
         console.log(newOrder);
-        fetch('http://localhost:5000/addOrder', {
+        fetch('https://quiet-waters-82203.herokuapp.com/addOrder', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newOrder)

@@ -17,3 +17,8 @@ body{
 .color-custom{
   color: #2FB677;
 }
+.loading{
+  background: none;
+  width:auto;
+  height: 200px;
+}

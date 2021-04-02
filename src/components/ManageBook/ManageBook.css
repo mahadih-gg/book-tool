@@ -9,6 +9,19 @@
 .manage-book-body{
     
 }
+.single-book{   
+    transition: all ease .1s;
+}
 .single-book:hover{
     background:rgba(0, 0, 0, 0.050);
+    transition: all ease .1s;
+}
+.btn-action{
+    border: none;
+    transition: all ease .3s;
+}
+.btn-action:hover{
+    box-shadow: 2px 2px 10px #999999;
+    border-radius: 5px;
+    transition: all ease .3s;
 }

@@ -19,8 +19,8 @@ const Checkout = () => {
     }, [])
 
     const handleOrderBtn = () => {
-        const newOrder = { user: user.displayName, email: user.email, ...book }
-
+        const newOrder = { user: user.displayName, email: user.email, ...book, date: (new Date()) }
+        console.log(newOrder);
         fetch('http://localhost:5000/addOrder', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },

@@ -41,9 +41,9 @@ function App() {
           <Route path="/login">
             <Login />
           </Route>
-          <Route path="/dashboard/manageBooks">
+          <PrivateRoute path="/dashboard/manageBooks">
             <Dashboard />
-          </Route>
+          </PrivateRoute>
         </Switch>
       </Router>
     </UserContext.Provider>

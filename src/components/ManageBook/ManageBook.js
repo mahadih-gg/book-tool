@@ -10,7 +10,21 @@ const ManageBook = () => {
         fetch('https://quiet-waters-82203.herokuapp.com/books')
             .then(res => res.json())
             .then(data => setBooks(data))
-    }, [])
+    }, [books])
+
+    const handleDelete = (id) => {
+        fetch(`http://localhost:5000/deleteBook/${id}`, {
+            method: "DELETE"
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data) {
+                    const remainBooks = books.filter(book => book._id !== id);
+                    setBooks(remainBooks);
+                }
+            })
+
+    }
 
     return (
         <div className="w-100 p-3 mb-3 manage-book-container">
@@ -45,8 +59,12 @@ const ManageBook = () => {
                                     <p className="my-auto">${book.price}</p>
                                 </div>
                                 <div className="col-2 ml-auto d-flex align-items-center">
-                                    <img src={editIco} className="mr-2 my-auto" width="30px" alt="" />
-                                    <img src={deleteIco} className="my-auto" width="30px" alt="" />
+                                    <button className="mr-2 btn-action">
+                                        <img src={editIco} className="my-auto" width="30px" alt="" />
+                                    </button>
+                                    <button className="btn-action" onClick={() => handleDelete(book._id)}>
+                                        <img src={deleteIco} className="my-auto" width="30px" alt="" />
+                                    </button>
                                 </div>
                             </div>
                         )
